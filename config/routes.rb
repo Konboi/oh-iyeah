@@ -1,4 +1,15 @@
 OhIyeah::Application.routes.draw do
+
+  root 'home#index'
+
+  get 'iyeah'  => "home#iyeah"
+  get 'login'  => "home#login"
+
+  get '/facebook/oauth'    => "facebook#oauth",    :as => :facebook_oauth
+  get '/facebook/callback' => "facebook#callback", :as => :facebook_callback
+
+  get ':facebook_id' => "home#mypage", :as => :mypage
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

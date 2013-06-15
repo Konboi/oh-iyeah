@@ -1,0 +1,19 @@
+<div class="span12">
+  <% @user.photos.each do |photo| %>
+    <div class="span2">
+      <div>
+        <p><a href="#modal<%= photo.id  %>" data-toggle="modal"><img src="<%= photo.thumbnail_url %>"></a></p>
+      </div>
+    </div>
+
+    <div id="modal<%= photo.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-body">
+        <p><img src="<%= photo.url %>"></p>
+      </div>
+      <div class="modal-footer">
+        <p>Oh!遺影数: <%= photo.goods.length %></p>
+        <a href="<%= iyeah_path(photo_id: photo.id, facebook_id: @user.facebook_id) %>"><button class="btn btn-primary">Oh!遺影</button></a>
+      </div>
+    </div>
+  <% end %>
+</div>
