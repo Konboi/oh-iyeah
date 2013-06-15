@@ -19,8 +19,15 @@ class HomeController < BaseController
 
   def iyeah
     user = User.where(facebook_id: facebook_user['id']).first
-    user.goods.create(photo_id: params[:photo_id])
 
+    flash[:error] = "1人1Oh!遺影 になります。ご了承ください。 " and  redirect_to mypage_path(params[:facebook_id]) and return if Good.where(photo_id: params[:photo_id]).where(user_id: user.id).first
+
+    user.goods.create(photo_id: params[:photo_id])
     redirect_to mypage_path(params[:facebook_id])
   end
 end
+
+
+
+
+

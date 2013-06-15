@@ -13,14 +13,17 @@
   <div class="row">
     <div class="span10">
       <p class="text-center">最後にみんなに見てもらう写真だからこそ、みんなが自分らしいと思う写真にしたい</p>
-      <p class="text-center">素の自分、意外な自分、いつもの自分 そんな自分をみんなに選んでほしい</p>
+      <p class="text-center">素の自分、意外な自分、いつもの自分 そんな自分をみんなで選ぼう</p>
       <p class="text-center">そして声高らかに叫ぼう<b><em>Oh! Yeah</em></b></p>
     </div>
   </div>
 
-  <div class="row">
-    <div class="span10">
-      <p class="text-center"><a href="<%= facebook_oauth_path %>"><input type="button" class="btn btn-primary btn-large" value="facebook認証してはじめる"></a></p>
+  <% if !logged_in? %>
+    <div class="row">
+      <div class="span10">
+        <p class="text-center"><a href="<%= facebook_oauth_path %>"><input type="button" class="btn btn-primary btn-large" value="facebook認証してはじめる"></a></p>
       </div>
-  </div>
+    </div>
+  <% end %>
+
 </div>
