@@ -4,6 +4,7 @@ OhIyeah::Application.routes.draw do
 
   get 'iyeah'  => "home#iyeah"
   get 'login'  => "home#login"
+  get 'logout' => "home#logout"
 
   get '/facebook/oauth'    => "facebook#oauth",    :as => :facebook_oauth
   get '/facebook/callback' => "facebook#callback", :as => :facebook_callback

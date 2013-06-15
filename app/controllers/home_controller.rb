@@ -11,10 +11,17 @@ class HomeController < BaseController
     redirect_to :root
   end
 
+  def logout
+    reset_session
+    redirect_to :root
+  end
+
   def mypage
+
     flash[:notice] = "facebookログインが必要です" and redirect_to login_path if !User.where(facebook_id: params[:facebook_id]).first
 
     @user = User.where(facebook_id: params[:facebook_id]).first
+    @url = "http://www.facebook.com/dialog/feed? app_id=#{Facebook::APP_ID}&link=http://oh-iyeah.konboi.com/#{params[:facebook_id]}&picture=http://oh-iyeah.konboi.com/img/icon.png&name=Oh!遺影&description=最後にみんなに見てもらう写真だからこそ、みんなが自分らしいと思う写真にしたい。素の自分、意外な自分、いつもの自分 そんな自分をみんなで選ぼう&redirect_uri=http://oh-iyeah.konboi.com/#{params[:facebook_id]}"
   end
 
   def iyeah
