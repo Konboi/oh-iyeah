@@ -12,7 +12,7 @@
 
     <div id="modal<%= photo.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-body">
-        <p><img src="<%= photo.url %>"></p>
+        <p><img src="<%= photo.url %>" class="large"></p>
       </div>
       <div class="modal-footer">
         <p>Oh!遺影数: <%= photo.goods.length %></p>
@@ -21,3 +21,4 @@
     </div>
   <% end %>
 </div>
+
